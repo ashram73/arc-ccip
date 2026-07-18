@@ -1,10 +1,10 @@
 # Cross-Chain Messaging on Arc with Chainlink CCIP
 
-A complete, working example of sending a cross-chain message from [Arc](https://arc.network) using [Chainlink CCIP](https://chain.link/cross-chain) — with the addresses, the exact message shape, and the details that are easy to get wrong.
+A complete, working example of sending a cross-chain message from [Arc](https://arc.network) using [Chainlink CCIP](https://chain.link/cross-chain)  with the addresses, the exact message shape, and the details that are easy to get wrong.
 
 Most CCIP tutorials target Ethereum or Base. This one is written for Arc, where the fee is paid in USDC and there's no separate gas token to acquire first.
 
-> Two contracts, two deploys, one message. No external Solidity dependencies — the CCIP interfaces are inlined so you can read every line.
+> Two contracts, two deploys, one message. No external Solidity dependencies the CCIP interfaces are inlined so you can read every line.
 
 ---
 
@@ -20,7 +20,7 @@ Most CCIP tutorials target Ethereum or Base. This one is written for Arc, where 
 
 ## The idea
 
-Something gets decided on Arc — a market settles, an oracle finalizes, a vote closes. Other chains need to know. CCIP carries that outcome across.
+Something gets decided on Arc a market settles, an oracle finalizes, a vote closes. Other chains need to know. CCIP carries that outcome across.
 
 ```
         ARC                                DESTINATION CHAIN
@@ -33,7 +33,7 @@ Something gets decided on Arc — a market settles, an oracle finalizes, a vote 
  └──────────────────┘                    └──────────────────┘
 ```
 
-The payload here is a settled outcome, but the pattern is general. Swap the struct and you have cross-chain governance results, state sync, or attestations — anything where one chain decides and others react.
+The payload here is a settled outcome, but the pattern is general. Swap the struct and you have cross-chain governance results, state sync, or attestations anything where one chain decides and others react.
 
 ---
 
@@ -158,7 +158,7 @@ cast call $RECEIVER "outcomeOf(uint256)" 1 --rpc-url $SEPOLIA_RPC_URL
 `receiver: abi.encode(receiverAddress)` — a `bytes` field, not an `address`. CCIP supports non-EVM destinations, so the field is deliberately generic. Passing a raw address is the single most common mistake.
 
 **2. Quote the fee every time.**
-`getFee()` reflects current destination gas prices, so a value that worked yesterday can be short today. Quote, send with headroom, refund the difference — that's the pattern in `ResultSender.broadcast()`.
+`getFee()` reflects current destination gas prices, so a value that worked yesterday can be short today. Quote, send with headroom, refund the difference that's the pattern in `ResultSender.broadcast()`.
 
 **3. `allowOutOfOrderExecution` must be `true` on v1.6 lanes.**
 Use `EVMExtraArgsV2`. The older `EVMExtraArgsV1` doesn't carry this field and will be rejected.
@@ -206,6 +206,3 @@ script/
 - [Arc docs](https://docs.arc.io)
 - [Circle faucet](https://faucet.circle.com)
 
-## License
-
-MIT — copy, adapt, ship.
