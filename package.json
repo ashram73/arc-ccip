@@ -1,0 +1,15 @@
+{
+  "name": "ccip-on-arc",
+  "version": "1.0.0",
+  "description": "A working guide to Chainlink CCIP cross-chain messaging on Arc.",
+  "license": "MIT",
+  "scripts": {
+    "broadcast": "tsx script/broadcast.ts"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
+  }
+}
