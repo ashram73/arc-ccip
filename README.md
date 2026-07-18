@@ -54,7 +54,7 @@ The payload here is a settled outcome, but the pattern is general. Swap the stru
 
 | Token | Address |
 |---|---|
-| USDC | native gas token — use `address(0)` |
+| USDC | native gas token use `address(0)` |
 | LINK | `0x3F1f176e347235858DD6Db905DDBA09Eaf25478a` |
 | WUSDC | `0xbf4B839A7939a52acbF8fC52D5Bd5BFE69a064EA` |
 
@@ -67,7 +67,7 @@ The payload here is a settled outcome, but the pattern is general. Swap the stru
 Destination chain selector for Ethereum Sepolia: `16015286601757825753`
 Router on Ethereum Sepolia: `0x0BF3dE8c5D3e8A2B34D2BEeB17ABfCeBaf363A59`
 
-Always confirm current values against the [CCIP Directory](https://docs.chain.link/ccip/directory/testnet/chain/arc-testnet) — lanes and tokens get added over time.
+Always confirm current values against the [CCIP Directory](https://docs.chain.link/ccip/directory/testnet/chain/arc-testnet) lanes and tokens get added over time.
 
 ---
 
